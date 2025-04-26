@@ -1,4 +1,4 @@
-package de.nexus.springbootvue.config;
+package de.nexus.springbootvue.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.Customizer;
