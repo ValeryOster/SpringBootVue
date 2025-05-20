@@ -1,59 +1,46 @@
 <template>
   <div class="container pt-1">
     <div class="card">
-      <h2>Aktuelle Nachrichten heute {{ now }}</h2>
-      <span>Gelesen <strong>{{openedRate}} | Angezeigt: {{showedRate}}</strong> </span>
+      <h2>Dynamic and Async Componets</h2>
     </div>
-    <app-news v-for="item in news" :key="item.id" :title="item.title"
-              :id="item.id" :open="item.open" :wasRead="item.wasRead"
-              @open-news="openedRate++" @read-news="readNews" >
-    ></app-news>
+
+    <app-button :color="active === 'one' ? 'primary' : ''"
+                @action="active = 'one'"
+    >One
+    </app-button>
+    <app-button :color="active === 'two' ? 'primary' : ''"
+                @action="active = 'two'"
+    >Two
+    </app-button>
+    <hr/>
+    <keep-alive>
+      <component :is="componentName"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import AppNews from "@/components/AppNews.vue";
+import AppButton from "@/components/AppButton.vue";
+import AppTextOne from "@/components/AppTextOne.vue";
+import AppTextTwo from "@/components/AppTextTwo.vue";
 
 export default {
   data() {
     return {
-      openedRate: 0,
-      showedRate: 0,
-      now: new Date().toLocaleDateString(),
-      news: [
-        {
-          title: 'Heute ist ein schöner Tag mit viel Sonne und wenig Wolken.',
-          id: 1,
-          open: false,
-          wasRead: false,
-        },
-        {
-          title: 'Die Temperaturen steigen auf bis zu 25 Grad.',
-          id: 2,
-          open: false,
-          wasRead: false,
-        },
-        {
-          title: 'Die Luftfeuchtigkeit ist angenehm und die Sonne scheint den ganzen Tag.',
-          id: 3,
-          open: false,
-          wasRead: false,
-        },
-      ],
+      active: 'one' //two
+    };
+  },
+
+  computed: {
+    componentName() {
+      // if (this.active === 'one') {
+      //   return 'app-text-one';
+      // }
+      // return 'app-text-two';
+      return 'app-text-' + this.active;
     }
   },
-  methods: {
-    readNews(id) {
-      this.news.forEach((item) => {
-        if (item.id === id) {
-          this.showedRate++;
-        }
-      });
-    }
-  },
-  components: {
-    'app-news':AppNews,
-  },
+  components: {AppButton, AppTextOne, AppTextTwo}
 }
 </script>
 
