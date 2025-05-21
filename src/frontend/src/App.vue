@@ -37,6 +37,7 @@ export default {
       //   return 'app-text-one';
       // }
       // return 'app-text-two';
+
       return 'app-text-' + this.active;
     }
   },
