@@ -3,21 +3,22 @@
 <template>
   <div class="card" >
     <h3>{{ title }}</h3>
-    <app-button  @action="toggleOpen" :text="this.isOpen ? 'Schließen' : 'Lesen'" ></app-button>
+    <app-button color="info" @action="toggleOpen">{{ this.isOpen ? 'Schließen' : 'Lesen' }} </app-button>
     <div v-if="isOpen">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, excepturi?</p>
       <app-button
           v-if="!wasReaded"
           color="primary"
-          @action="markMessage"
-          text="Komplett gelesen">
-        </app-button>
+          @action="markMessage">Komplett gelesen</app-button>
+    <app-news-list></app-news-list>
     </div>
   </div>
 </template>
 
 <script>
-import AppButton from "@/components/AppButton.vue";
+import AppButton from "@/compfromvideo/ComponentComunication1/AppButton.vue";
+import AppNewsList from "@/compfromvideo/ComponentComunication1/AppNewsList.vue";
+
 export default {
   props: {
     title: {
@@ -65,8 +66,7 @@ export default {
       this.$emit('read-news', this.id, this.wasReaded);
     }
   },
-  components: {AppButton
-  },
+  components: {AppButton, AppNewsList},
 };
 </script>
 

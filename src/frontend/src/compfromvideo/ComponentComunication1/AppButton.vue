@@ -13,7 +13,9 @@ export default{
       type:String,
       default:"",
       validator(value){
-        return ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"].includes(value);
+        return ["primary", "secondary", "success",
+          "danger", "warning", "info", "light",
+          "dark", ''].includes(value);
       }
     }
   },
