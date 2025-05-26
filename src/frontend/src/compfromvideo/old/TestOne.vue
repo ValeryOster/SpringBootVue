@@ -6,19 +6,19 @@
   <div>
     <div class="outher">
       <div class="content">
-        <img src="../assets/bild/Smetana.png">
+        <img src="../../assets/bild/Smetana.png">
         <p>First</p>
         <p>Second</p>
         <p>Third</p>
       </div>
       <div class="content">
-        <img src="../assets/bild/Smetana.png">
+        <img src="../../assets/bild/Smetana.png">
         <p>First</p>
         <p>Second</p>
         <p>Third</p>
       </div>
       <div class="content">
-        <img src="../assets/bild/Smetana.png">
+        <img src="../../assets/bild/Smetana.png">
         <p>First</p>
         <p>Second</p>
         <p>Third</p>
@@ -27,28 +27,28 @@
 
     <div class="outher">
       <div class="content">
-        <img src="../assets/bild/Smetana.png">
+        <img src="../../assets/bild/Smetana.png">
         <p>First</p>
         <p>Second</p>
         <p>Third</p>
       </div>
       <div class="content">
-        <img src="../assets/bild/Smetana.png">
+        <img src="../../assets/bild/Smetana.png">
         <p>First</p>
         <p>Second</p>
         <p>Third</p>
       </div>
       <div class="content">
-        <img src="../assets/bild/Smetana.png">
+        <img src="../../assets/bild/Smetana.png">
         <p>First</p>
         <p>Second</p>
         <p>Third</p>
       </div>
     </div>
     <div class="container">
-      <img src="../assets/bild/Smetana.png">
-      <img src="../assets/bild/Smetana.png">
-      <img src="../assets/bild/Smetana.png">
+      <img src="../../assets/bild/Smetana.png">
+      <img src="../../assets/bild/Smetana.png">
+      <img src="../../assets/bild/Smetana.png">
     </div>
   </div>
 </template>

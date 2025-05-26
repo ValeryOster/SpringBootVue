@@ -1,50 +1,45 @@
 <template>
-  <div class="container pt-1">
-    <div class="card">
-      <h2>Dynamic and Async Componets</h2>
-    </div>
+  <div class="container">
+    <form class="card" @submit.prevent="createPerson">
+      <h2>DateBase anbinden</h2>
+      <div class="form-control">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Name" v-model="person.name" />
+      </div>
+      <button class="btn primary" :disabled="person.name.length === 0">Submit</button>
+    </form>
 
-    <app-button :color="active === 'one' ? 'primary' : ''"
-                @action="active = 'one'"
-    >One
-    </app-button>
-    <app-button :color="active === 'two' ? 'primary' : ''"
-                @action="active = 'two'"
-    >Two
-    </app-button>
-    <hr/>
-    <keep-alive>
-      <component :is="componentName"></component>
-    </keep-alive>
   </div>
 </template>
-
 <script>
-import AppButton from "@/components/AppButton.vue";
-import AppTextOne from "@/components/AppTextOne.vue";
-import AppTextTwo from "@/components/AppTextTwo.vue";
+
+import axios from "axios";
 
 export default {
   data() {
     return {
-      active: 'one' //two
-    };
-  },
-
-  computed: {
-    componentName() {
-      // if (this.active === 'one') {
-      //   return 'app-text-one';
-      // }
-      // return 'app-text-two';
-
-      return 'app-text-' + this.active;
+      persons: [],
+      person:{
+        id: null,
+        name: '',
+        email: '',
+        phone: '',
+      },
     }
   },
-  components: {AppButton, AppTextOne, AppTextTwo}
+  methods: {
+    async createPerson() {
+      console.log(this.person);
+      axios.post('http://localhost:8085/api/person/save', this.person).then(response => {
+        console.log(response.data);
+        this.persons.push(response.data);
+      }).catch(error => {
+        console.error("Error creating person:", error);
+      })
+    }
+  },
 }
 </script>
 
 <style>
-
 </style>

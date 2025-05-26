@@ -1,14 +1,13 @@
-
 import './main.css';
-import { createApp,} from 'vue'
+import { createApp} from 'vue'
 import App from './App.vue'
-import Myheader from './MyHeader.vue'
+import axios from 'axios'
 
-const app = createApp(App);
 
+let app = createApp(App);
 app.mount('#app');
-app.component('My-header', Myheader);
 
+app.config.globalProperties.axios=axios
 
 
 // setTimeout(() => {
