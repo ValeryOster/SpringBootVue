@@ -9,32 +9,32 @@ import org.springframework.web.cors.CorsConfiguration;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 //import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
+//@Configuration
 public class FilterConfig {
 
-//    @Bean
+    //    @Bean
 //    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-////        http
-////                .authorizeHttpRequests(authorizeRequests -> {
-////                    authorizeRequests.requestMatchers("/hello").authenticated()
-////                    .requestMatchers("/api/person/save").authenticated()
-////                    .requestMatchers("/api/person/get").permitAll()
-////                            .anyRequest().permitAll()
-////                    ;
-////                });
-//        http.authorizeHttpRequests(authorizeRequests ->authorizeRequests.anyRequest().permitAll());
+//        http
+//                .authorizeHttpRequests(authorizeRequests -> {
+//                    authorizeRequests.requestMatchers("/hello").authenticated()
+//                            .requestMatchers("/api/person/save").authenticated()
+//                            .requestMatchers("/api/person/get").permitAll()
+//                            .anyRequest().permitAll()
+//                    ;
+//                });
+//        http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().permitAll());
 //        return http.build();
 //    }
 
-@Bean
-public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http.cors(httpSecurityCorsConfigurer ->
-            httpSecurityCorsConfigurer.configurationSource(request ->
-                    new CorsConfiguration().applyPermitDefaultValues()
-            )
-    );
-    http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest()
-            .permitAll()).csrf(AbstractHttpConfigurer::disable);
-    return http.build();
-}
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.cors(httpSecurityCorsConfigurer ->
+                httpSecurityCorsConfigurer.configurationSource(request ->
+                        new CorsConfiguration().applyPermitDefaultValues()
+                )
+        );
+        http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest()
+                .permitAll()).csrf(AbstractHttpConfigurer::disable);
+        return http.build();
+    }
 }
